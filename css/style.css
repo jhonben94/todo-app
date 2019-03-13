@@ -68,3 +68,7 @@ button{
   input[type=checkbox] {
     transform: scale(1.5);
   }
+
+  .titulo{
+    color:#736C6B;
+  }
