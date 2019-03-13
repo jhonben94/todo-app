@@ -4,10 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <title>TODO List App</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,900" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Lista de Tareas</h1>
+        <h1>Lista de Tareas!</h1>
         <p>
             <label for="new-task">Nueva Tarea</label>
             <input id="new-task" type="text"><button class="add">Agregar</button>
@@ -29,14 +31,15 @@
                     Tarea 2
                 </label>
                 <button class="edit">Editar</button>
-                <button class="delete">Borrar</button></li>
+                <button class="delete">Borrar</button>
+            </li>
 
         </ul>
 
         <h2>Lista de Tareas Completadas</h2>
         <ul id="completed-tasks">
             <li>
-                <label>
+                <label class="completed">
                     <input type="checkbox" checked>
                     Tarea 0
                 </label>
