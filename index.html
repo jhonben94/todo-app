@@ -9,6 +9,17 @@
 </head>
 <body>
     <div class="container">
+
+            <div id ="errorDiv" style="display: none;" class="alert alert-danger">
+                
+            </div>
+
+            <div id ="successDiv" style="display: none;" class="alert alert-success">
+                
+                </div>
+                <div id ="warningDiv" style="display: none;" class="alert alert-warning">
+                
+                    </div>
         <h1 class="titulo">Lista de Tareas!</h1>
         <p>
             <label for="new-task">Nueva Tarea</label>
@@ -17,38 +28,39 @@
 
         <h2 class="titulo">Lista de Tareas Pendientes</h2>
         <ul id="incomplete-tasks">
-            <li>
+            <!-- <li>
                 <label>
                     <input type="checkbox"/>
                     Tarea 1
                 </label>
                 <button class="edit">Editar</button>
                 <button class="delete">Borrar</button>
-            </li>
-            <li>
+            </li> -->
+            <!-- <li>
                 <label>
                     <input type="checkbox"/>
                     Tarea 2
                 </label>
                 <button class="edit">Editar</button>
                 <button class="delete">Borrar</button>
-            </li>
+            </li> -->
 
         </ul>
 
         <h2 class="titulo">Lista de Tareas Completadas</h2>
         <ul id="completed-tasks">
-            <li>
+           <!--  <li>
                 <label class="completed">
                     <input type="checkbox" checked>
                     Tarea 0
                 </label>
                 <button class="edit">Editar</button>
                 <button class="delete">Borrar</button>
-            </li>
+            </li> -->
         </ul>
     </div>
-
+    <script type="text/javascript" src="js/ajax.js" async></script>
+    <script type="text/javascript" src="js/todolist.js" async></script>
 </body>
 </html>
 
