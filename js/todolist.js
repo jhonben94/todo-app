@@ -168,6 +168,7 @@
             // - Una forma de hacerlo es remover directamente el archivo con el id `task-${task.id}` del DOM HTML
             // y luego llamar a la función `addTaskToList` que re-creara la tarea con el nuevo estado en el lugar correcto.
             // - No te olvides de llamar al API (método PUT) para modificar el estado de la tarea en el servidor.
+            console.log(task);
             removeTaskFromList(task.id);
             let aux = task.status;
            if( e.target.checked ){
@@ -177,9 +178,9 @@
            }
 
 
-           Ajax.sendPutRequest(API_URL,task, MediaFormat.JSON,
+           Ajax.sendPutRequest(API_URL+`/${task.id}`,task, MediaFormat.JSON,
             (callbackSuccess) => {
-                                showWarning(200,currentTask.id)
+                                showWarning(200,task.id)
                                },
            (callbackError) => {
                                 task.status =aux;
@@ -272,17 +273,17 @@
             //  - La llamada debe ser asíncrona.
             //  - No te olvides de envíar el parámetro para que se cree la tarea.
            // sendPutRequest: function (url, params, accept, callbackSuccess, callbackError, asynchronous, type)
-         Ajax.sendPutRequest(API_URL,currentTask, MediaFormat.JSON,
+         Ajax.sendPutRequest(API_URL+`/${currentTask.id}`,currentTask, MediaFormat.JSON,
             (callbackSuccess) => {
-                                loadTasks(callbackSuccess);
-                                 showWarning(200,currentTask.id)
+                                //loadTasks(callbackSuccess);
+                                 showWarning(200,currentTask.id);
+                                 revertHTMLChangeOnEdit(currentTask);
                                },
            (callbackError) => {
                                 showError(callbackError,'No se pudo modificar la tarea.');
                            }, 
            false
            ); 
-           //showWarning(200,currentTask.id);
         };
 
         let buttonCancel = document.createElement('button');
@@ -314,7 +315,7 @@
         let label = document.createElement('label');
 
         currentDOMTask.insertBefore(label, currentDOMTask.children[0]);
-        label.innerHTML = `<input type="checkbox"/> ${task.description}`;
+        label.innerHTML = `<input type="checkbox ${task.status === TASK_STATUS.DONE ? "checked" : ""} "/> ${task.description}`;
         addOnChangeEvent(task);
 
         currentDOMTask.insertBefore(label, currentDOMTask.children[0]);
